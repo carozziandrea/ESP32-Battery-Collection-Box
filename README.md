@@ -8,9 +8,9 @@ I due cavi posti nella parte frontale vengono posti ai poli di una batteria da t
 - se la pila è scarica, un motore servo apre un buco nella scatola nel quale inserire la pila. Il buco si richiude automaticamente dopo 10 secondi oppure quando l'inserimento della pila viene rilevato da un sensore all'interno della scatola.
 
 ## Struttura Repository
-**TODO:** sketch principale del progetto
-**Cartella Images:** contiene le immagini presenti nel README
-**Tests:** cartella che contiene i vari sketch di test che ho usato durante lo sviluppo per testare i singoli componenti
+- **TODO:** sketch principale del progetto
+- **Cartella Images:** contiene le immagini presenti nel README
+- **Tests:** cartella che contiene i vari sketch di test che ho usato durante lo sviluppo per testare i singoli componenti
 
 ## Componenti usati
 
