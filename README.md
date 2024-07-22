@@ -4,25 +4,29 @@ Progetto d'esame per il corso di Sistemi Embedded nella facoltà di Informatica 
 ## Descrizione
 Il progetto consiste in una scatola per il raccoglimento di pile usate. 
 I due cavi posti nella parte frontale vengono posti ai poli di una batteria da testare e in base al voltaggio rilevato possono avvenire due cose:
-- se la pila è ancora abbastanza carica viene semplicemente visualizzato sul display LCD il tipo di batteria e il voltaggio rilevato
-- se la pila è scarica, un motore servo apre un buco nella scatola nel quale inserire la pila. Il buco si richiude automaticamente dopo 10 secondi oppure quando l'inserimento della pila viene rilevato da un sensore all'interno della scatola
+- se la pila è ancora abbastanza carica viene semplicemente visualizzato sul display LCD il tipo di batteria;
+- se la pila è scarica, un motore servo apre un buco nella scatola nel quale inserire la pila. Il buco si richiude automaticamente dopo 10 secondi oppure quando l'inserimento della pila viene rilevato da un sensore all'interno della scatola.
 
 ## Componenti usati
 
 - 1x ESP32-WROVER-DEV
 - 1x GPIO Extension Board
 - 1x Breadboard
-- 3x 10kOhm Resistor
+- 3x 10kOhm Resistenze
 - 1x LCD1602 I2C Display
 - 1x Servo Motor
-- 1x HC-SR501
+- 1x HC-SR04
 - 10x Jumper Cables
+
+- 1x Pila 9V (alimentazione ESP32)
+- 4x Pile AA (alimentazione servo)
 
 ## Librerie Usate
 
 - **<LiquidCrystal_I2C.h>:** libreria esterna che permette di controllare display LCD che utilizzano il protocollo I2C sando solo due pin (SDA e SCL)
 - **<Wire.h>:** libreria interna per gestire le comunicazioni con dispositivi I2C come sensori o display.
 - **<ESP32Servo.h>:** libreria esterna per l'ESP32 e permette di controllare servo motori tramite segnali PWM.
+- **<UltrasonicSensor.h>:** libreria esterna che controlla comodamente il sensore di prossimità. 
 - **<freertos/FreeRTOS.h> / <freertos/task.h> / <freertos/timers.h>:** librerie che implementano il sistema operativo FreeRTOS e la sua gestione dei task e dei timer.
 
 ## Problemi vari riscontrati durante lo sviluppo del progetto e soluzioni adottate
@@ -53,6 +57,12 @@ I due cavi posti nella parte frontale vengono posti ai poli di una batteria da t
 **PROBLEMA: Un timer creato con la funzione millis() risulta inefficiente e impreciso**
 
 **SOLUZIONE:** Usare i timer di FreeRTOS.
+
+<br />
+
+**PROBLEMA: Quando il motore servo si muove fa resettare la board perchè quando sono collegati più componenti, il servo non riceve abbastanza alimentazione**
+
+**SOLUZIONE:** Collegare una alimentazione esterna solo per il motore (i cui collegamenti vanno a GND, al pin dell'ESP32 da cui riceverà comandi e all'alimentazione con 4 pile AA).
 
 <br />
 
