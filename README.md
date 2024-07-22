@@ -7,6 +7,11 @@ I due cavi posti nella parte frontale vengono posti ai poli di una batteria da t
 - se la pila è ancora abbastanza carica viene semplicemente visualizzato sul display LCD il tipo di batteria;
 - se la pila è scarica, un motore servo apre un buco nella scatola nel quale inserire la pila. Il buco si richiude automaticamente dopo 10 secondi oppure quando l'inserimento della pila viene rilevato da un sensore all'interno della scatola.
 
+## Struttura Repository
+**TODO:** sketch principale del progetto
+**Cartella Images:** contiene le immagini presenti nel README
+**Tests:** cartella che contiene i vari sketch di test che ho usato durante lo sviluppo per testare i singoli componenti
+
 ## Componenti usati
 
 - 1x ESP32-WROVER-DEV
@@ -45,6 +50,12 @@ I due cavi posti nella parte frontale vengono posti ai poli di una batteria da t
 **PROBLEMA: Lo schermo LCD non risponde correttamente nonostante la disposizione dei cavi sia corretta**
 
 **SOLUZIONE:** Cercare quali pin dell'ESP32 sono più adatti per linee SDA e usare quelli invece di pin generici.
+
+<br />
+
+**PROBLEMA: Uno dei vari componenti non funziona più dopo una nuova versione dello sketch o dopo un periodo di inattività**
+
+**SOLUZIONE:** Uso uno sketch di test (presente nella repository) per provare il singolo elemento. Se esso funziona, il problema va cercato nel software o in possibili interferenze tra i componenti. Se anche con lo sketch non funziona il problema è fisico e controllo le connessioni, eventualmente provando a sostitutire i cavi o cambiando i pin a cui è collegato.
 
 <br />
 
