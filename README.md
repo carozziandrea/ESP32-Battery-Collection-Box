@@ -8,8 +8,8 @@ I due cavi posti nella parte frontale vengono posti ai poli di una batteria da t
 - se la pila è scarica, un motore servo apre un buco nella scatola nel quale inserire la pila. Il buco si richiude automaticamente dopo 10 secondi oppure quando l'inserimento della pila viene rilevato da un sensore all'interno della scatola.
 
 ## Struttura Repository
-- **TODO:** sketch principale del progetto
-- **Cartella Images:** contiene le immagini presenti nel README
+- **BatteryBox:** cartella contenente lo sketch principale del progetto
+- **Images:** contiene le immagini presenti nel README
 - **Tests:** cartella che contiene i vari sketch di test che ho usato durante lo sviluppo per testare i singoli componenti
 
 ## Componenti usati
@@ -32,7 +32,7 @@ I due cavi posti nella parte frontale vengono posti ai poli di una batteria da t
 - **<Wire.h>:** libreria interna per gestire le comunicazioni con dispositivi I2C come sensori o display.
 - **<ESP32Servo.h>:** libreria esterna per l'ESP32 e permette di controllare servo motori tramite segnali PWM.
 - **<UltrasonicSensor.h>:** libreria esterna che controlla comodamente il sensore di prossimità. 
-- **<freertos/FreeRTOS.h> / <freertos/task.h> / <freertos/timers.h>:** librerie che implementano il sistema operativo FreeRTOS e la sua gestione dei task e dei timer.
+- **<freertos/FreeRTOS.h> / <freertos/timers.h>:** librerie che implementano il sistema operativo FreeRTOS e la sua gestione dei timer.
 
 ## Problemi vari riscontrati durante lo sviluppo del progetto e soluzioni adottate
 **PROBLEMA: Voglio misurare pile da 9V ma l'ESP32 regge voltaggi solo fino a 3.3V**
@@ -77,9 +77,9 @@ I due cavi posti nella parte frontale vengono posti ai poli di una batteria da t
 
 <br />
 
-**PROBLEMA: Una volta rilevata una pila devono partire sia il task che controlla il sensore di prossimità che il timer. Al rilevamento del sensore o al termine del timer l'altro deve essere disattivato e non continuare.**
+**PROBLEMA: Una volta rilevata una pila devono partire sia la funzione che controlla il sensore di prossimità che il timer. Al rilevamento del sensore o al termine del timer l'altro deve essere disattivato e non continuare.**
 
-**SOLUZIONE:** Coordino i due elementi. Quando il timer scade, elimina il task in attesa; quando il task rileva il sensore, interrompe il timer.
+**SOLUZIONE:** Coordino i due elementi. Quando il timer scade, esce dalla funzione in attesa; quando la funzione rileva il sensore, interrompe il timer.
 
 ## Foto
 
