@@ -82,5 +82,8 @@ I due cavi posti nella parte frontale vengono posti ai poli di una batteria da t
 **SOLUZIONE:** Coordino i due elementi. Quando il timer scade, esce dalla funzione in attesa; quando la funzione rileva il sensore, interrompe il timer.
 
 ## Foto
+**Foto interna alla scatola**
+![Foto interna](Images/IMG_20240726_155702.jpg)
 
-## Demo
+**Foto del motore servo e dello schermo LCD**
+![Foto motore servo](Images/IMG_20240726_155842_Bokeh.jpg)
