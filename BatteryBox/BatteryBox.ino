@@ -26,8 +26,8 @@ SOFTWARE.
 #include <Wire.h>
 #include <ESP32Servo.h>
 #include <UltrasonicSensor.h>
-#include <freertos/FreeRTOS.h>  // Include FreeRTtOS library
-#include <freertos/timers.h>    // Include FreeRTOS timers
+#include <freertos/FreeRTOS.h>
+#include <freertos/timers.h>
 
 #define ANALOG_PIN 25
 #define LCD_SDA 21
