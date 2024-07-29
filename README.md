@@ -30,7 +30,7 @@ I due cavi posti nella parte frontale vengono posti ai poli di una batteria da t
 
 - **<LiquidCrystal_I2C.h>:** libreria esterna che permette di controllare display LCD che utilizzano il protocollo I2C sando solo due pin (SDA e SCL)
 - **<Wire.h>:** libreria interna per gestire le comunicazioni con dispositivi I2C come sensori o display.
-- **<ESP32Servo.h>:** libreria esterna per l'ESP32 e permette di controllare servo motori tramite segnali PWM.
+- **<ESP32Servo.h>:** libreria esterna per l'ESP32 e permette di controllare servo motori.
 - **<UltrasonicSensor.h>:** libreria esterna che controlla comodamente il sensore di prossimità. 
 - **<freertos/FreeRTOS.h> / <freertos/timers.h>:** librerie che implementano il sistema operativo FreeRTOS e la sua gestione dei timer.
 
