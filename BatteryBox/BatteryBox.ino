@@ -26,8 +26,7 @@ SOFTWARE.
 #include <Wire.h>
 #include <ESP32Servo.h>
 #include <UltrasonicSensor.h>
-#include <freertos/FreeRTOS.h>  // Include FreeRTOS library
-#include <freertos/task.h>      // Include FreeRTOS tasks
+#include <freertos/FreeRTOS.h>  // Include FreeRTtOS library
 #include <freertos/timers.h>    // Include FreeRTOS timers
 
 #define ANALOG_PIN 25
@@ -138,12 +137,12 @@ void loop() {
 }
 
 /**
- *  servoHandle - funzione che aspetta il rilevamento del sensore in background come task di FreeRTOS
+ *  servoHandle - funzione che aspetta il rilevamento del sensore
  *  INPUT: /
  *  OUTPUT: /
 **/
 void servoHandle() {
-  Serial.println("Inizio Task");
+  Serial.println("Inizio Funzione");
   myservo.write(SERVO_OPEN);
   Serial.println("Servo ON");
   lcd.clear();
@@ -174,7 +173,7 @@ void servoHandle() {
   Serial.print("Servo OFF");
   startScreen();
 
-  Serial.println("Fine Task");
+  Serial.println("Fine Funzione");
 }
 
 /**
