@@ -1,7 +1,7 @@
 /*
 MIT License
 
-Copyright (c) 2024 Andrea Carozzi
+Copyright (c) 2025 Andrea Carozzi
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -32,8 +32,6 @@ SOFTWARE.
 #define ANALOG_PIN 25
 #define LCD_SDA 21
 #define LCD_SCL 22
-
-#define PIR_PIN 18  
 
 #define MAX_9V 10.0
 #define MIN_9V 8.0
@@ -94,14 +92,11 @@ void setup() {
 }
 
 void loop() {
-  float analogValue = analogRead(ANALOG_PIN);
-  
-  voltage = 0.00080566 * analogValue;
   voltage = ReadVoltage(ANALOG_PIN);
   voltage = voltage / (R2 / (R1 + R2));
 
   String voltstr = String(voltage, 3);
-  Serial.println("Read: " + String(analogValue) + " Voltage: " + String(voltage, 3));
+  //Serial.println("Read: " + String(analogValue) + " Voltage: " + String(voltage, 3));
 
   VoltageType voltageType = getVoltageType(voltage);
 
@@ -128,6 +123,7 @@ void loop() {
     case SCARICA_1_5V:
       printLcd("Pila scarica!");
       servoHandle();
+      break;
     case V_ERRATO:
     default:
       break;
@@ -142,6 +138,7 @@ void loop() {
  *  OUTPUT: /
 **/
 void servoHandle() {
+  int distance;
   Serial.println("Inizio Funzione");
   myservo.write(SERVO_OPEN);
   Serial.println("Servo ON");
@@ -157,8 +154,8 @@ void servoHandle() {
       timerEnded = false;
       break;  
     }
-    int distance = ultrasonic.distanceInCentimeters();
-    Serial.printf("D: %d\n",distance);
+    distance = ultrasonic.distanceInCentimeters();
+    //Serial.printf("D: %d\n",distance);
     if(distance < 10) { 
       delay(1000);
       Serial.println("Movement detected");
